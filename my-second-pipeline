@@ -1,0 +1,14 @@
+node {
+    stage("Pull-job") {
+    echo "Pull job sucess"
+    }
+    stage("Build-job") {
+    echo "Build job sucess"
+    }
+    stage("Test-job") {
+    echo "Test job sucess"
+    }
+    stage("Deploy-job") {
+    echo "Deploy job sucess"
+    }
+    }
