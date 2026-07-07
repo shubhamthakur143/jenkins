@@ -8,7 +8,8 @@ pipeline {
         }
         stage ('Build-Job') {
             steps {
-            sh 'mvn clean package -DskipTests'
+            sh ''' cd backend
+            mvn clean package -DskipTests'''
             }
         } 
         stage ('Test-Job') {
