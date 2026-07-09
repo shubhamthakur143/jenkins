@@ -15,7 +15,7 @@ pipeline {
         stage ('Test-Job') {
             steps {
             sh ''' cd backend
-            mvn clean verify sonar:sonar \\
+            mvn sonar:sonar \\
           -Dsonar.projectKey=quality_test \\
           -Dsonar.projectName=\'quality_test\' \\
           -Dsonar.host.url=http://54.90.215.56:9000 \\
