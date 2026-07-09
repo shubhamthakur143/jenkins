@@ -14,11 +14,12 @@ pipeline {
         } 
         stage ('Test-Job') {
             steps {
-            sh '''mvn clean verify sonar:sonar \\
-  -Dsonar.projectKey=quality_test \\
-  -Dsonar.projectName=\'quality_test\' \\
-  -Dsonar.host.url=http://54.90.215.56:9000 \\
-  -Dsonar.token=sqp_fbf99ed3234c947d283829cad4f7d205912c40bf'''
+            sh ''' cd backend
+            mvn clean verify sonar:sonar \\
+          -Dsonar.projectKey=quality_test \\
+          -Dsonar.projectName=\'quality_test\' \\
+          -Dsonar.host.url=http://54.90.215.56:9000 \\
+          -Dsonar.token=sqp_fbf99ed3234c947d283829cad4f7d205912c40bf'''
             }
         }
         stage ('Deploy-Job') {
