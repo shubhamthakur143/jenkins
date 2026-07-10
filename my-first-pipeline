@@ -14,7 +14,7 @@ pipeline {
         } 
         stage ('Test-Job') {
             steps {
-            withSonarQubeEnv( installation name: 'sonar-server', credentialsId: 'cred') {
+            withSonarQubeEnv( installationName: 'sonar-server', credentialsId: 'cred') {
                 sh '''cd backend 
                 mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar   -Dsonar.projectKey=demo '''
                 }
