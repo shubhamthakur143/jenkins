@@ -14,9 +14,10 @@ pipeline {
         } 
         stage ('Test-Job') {
             steps {
-sh '''cd backend
-mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar   -Dsonar.projectKey=demo   -Dsonar.projectName=\'demo\'   -Dsonar.host.url=http://54.205.203.142:9000   -Dsonar.token=sqp_67f943d20d4711e42fdf0705c66c8a6553798784
-'''
+            withSonarQubeEnv(credentialsId: 'cred') {
+                sh '''cd backend 
+                mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar   -Dsonar.projectKey=demo '''
+                }
             }
         }
         stage ('Deploy-Job') {
