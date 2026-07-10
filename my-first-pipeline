@@ -24,8 +24,10 @@ pipeline {
         }
         stage ('Qualit-test') {
             steps {
+                timeout(5) {
             waitForQualityGate abortPipeline: true, credentialsId: 'cred'
             }
+        }
 
         }
         stage ('Deploy-Job') {
