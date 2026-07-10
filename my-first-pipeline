@@ -32,7 +32,7 @@ pipeline {
         }
         stage ('Deploy-Job') {
             steps {
-            echo "Deploy job sucesss"
+            sh 'aws s3 cp backend/target/student-registration-backend-0.0.1-SNAPSHOT.jar s3://s3-delivery-bkt/easycrud.jar'
             }
         }
     }
